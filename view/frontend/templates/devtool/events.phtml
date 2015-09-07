@@ -1,0 +1,6 @@
+<table>
+	<tr><th>Event Name</th><th>Observer Name</th><th>Observer Function</th><th>Observer Class</th><th>Call Count</th></tr>
+	<?php foreach($block->getEventDetails() as $event){ ?>
+			<tr><td><?php echo $event['event'] ?></td><td><?php echo $event['configuration']['name'] ?></td><td><?php echo $event['configuration']['method'] ?></td><td><?php echo $event['configuration']['instance'] ?></td><td><?php echo $event['count'] ?></td></tr>
+	<?php } ?>
+</table>

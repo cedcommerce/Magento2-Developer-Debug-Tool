@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Config/etc/system_file.xsd">
+    <system>
+        <tab id="cedcommerce" translate="label" sortOrder="200">
+            <label>CedCommerce</label>
+        </tab>
+        <section id="devtool" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>devtool</class>
+            <label>Developer Tool</label>
+            <tab>cedcommerce</tab>
+            <resource>Magento_Catalog::config_devtool</resource>
+            <group id="module" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Develper Tool</label>
+                <field id="is_enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+					<label>Enable Developer Tool</label>
+                    <backend_model>Magento\Catalog\Model\Indexer\Category\Flat\System\Config\Mode</backend_model>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				<field id="allowed_ip" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+					<label>Allowed IPs (comma separated)</label>
+                </field>
+            </group>
+        </section>
+        
+    </system>
+</config>

@@ -1,0 +1,38 @@
+<style type="text/css">
+   #wrap {
+    width: 100%;
+}
+.left {
+    clear: both;
+    float: left;
+    line-height: 40px;
+    width: 33.33%;
+	margin-bottom: 15px;
+}
+.middle {
+    float: left;
+    line-height: 30px;
+    width: 26.33%;
+	margin-bottom: 15px;
+}
+.right {
+    float: left;
+    width: 40.33%;
+	margin-bottom: 15px;
+}
+#right_col {
+    line-height: 30px;
+}
+
+</style>
+
+<div id="wrap">
+    <div class="structure_wrap">
+        <div class="left"><span id="left_col"><b>Blocks</b></span></div><div class="middle"><span id="middle_col"><b>Handle</b></span></div><div class="right"><span id="right_col"><b>Associated Template</b></span></div>
+        <?php
+                 foreach($block->getBlockHandleDetails() as $bloc){
+                            echo '<div class="left"><span id="left_col">'.$bloc['class'].'</span></div><div class="middle"><span id="middle_col">'.$bloc['handle'].'</span></div><div class="right"><span id="right_col">'.$bloc['template'].'</span></div>';
+                     }
+        ?>
+    </div>
+</div>

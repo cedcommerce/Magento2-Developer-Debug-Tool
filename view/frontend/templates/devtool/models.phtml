@@ -1,0 +1,25 @@
+<?php
+
+$items = $this->getModelDetails();
+//var_dump($items);die;
+?>
+<table>
+	<thead>
+		<tr>
+			<th><?php echo __('Resource Name') ?></th>
+			<th><?php echo __('Model Class') ?></th>
+			<th><?php echo __('Times Instantiated') ?></th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php $row = 0; ?>
+		<?php foreach( $items as $item ): ?>
+			<tr class="<?php echo ( ($row % 2 ? 'djDebugOdd' : 'djDebugEven')) ?>">
+				<td><?php echo $item['resource_name'] ?></td>
+				<td><?php echo $item['class'] ?></td>
+				<td><?php echo $item['occurences'] ?></td>
+			</tr>
+			<?php $row++; ?>
+		<?php endforeach ?>
+	</tbody>
+</table>

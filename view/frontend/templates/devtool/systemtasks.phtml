@@ -1,0 +1,25 @@
+<button class="button devtool-system-toggle" id="toggle-path-hint" redirecturi="<?php echo $block->getControllerUrl('devtool/systemtasks/togglepathhint') ?>"><?php echo $block->getTogglePathHintTitle() ?></button>
+<button class="button devtool-system-toggle"  id="toggle-block-hint" redirecturi="<?php echo $block->getControllerUrl('devtool/systemtasks/toggleblockhint') ?>"><?php echo $block->getToggleBlockHintTitle() ?></button>
+<button class="button devtool-system-toggle"  id="flush-cache" redirecturi="<?php echo $block->getControllerUrl('devtool/systemtasks/flushall') ?>"><?php echo __('Flush Cache') ?></button>
+<button class="button devtool-system-toggle"  id="toggle-cache" redirecturi="<?php echo $block->getControllerUrl('devtool/systemtasks/togglecache') ?>"><?php echo __('Toggle Cache') ?></button>
+<input type="hidden" id="current-url" value="<?php echo $block->getCurrentUrl() ?>">
+<script type="text/javascript">
+	require([
+		"jquery",
+		"jquery/jquery.cookie",
+		"mage/mage",
+		"mage/cookies",
+	], function($){
+		(function($) {
+			$('.devtool-system-toggle').click(function(){
+				$(this).attr('disabled','disabled');
+				$(this).html('Wait...');
+				$url=$(this).attr('redirecturi');
+				$returnUrl=$(this).attr('current-url');
+				$.post($url,{returnUrl:$returnUrl},function(){
+					location.reload();
+				});
+			});
+		})(jQuery);	
+	});	
+</script>

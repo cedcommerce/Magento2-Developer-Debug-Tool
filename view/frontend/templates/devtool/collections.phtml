@@ -1,0 +1,25 @@
+<?php
+
+$collections = $this->getCollectionDetails();
+
+?>
+<table>
+	<thead>
+		<tr>
+			<th><?php echo __('Type') ?></th>
+			<th><?php echo __('Class') ?></th>
+			<th><?php echo __('SQL') ?></th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php $row = 0; ?>
+		<?php foreach( $collections as $item ): ?>
+			<tr class="<?php echo ( ($row % 2 ? 'djDebugOdd' : 'djDebugEven')) ?>">
+				<td><?php echo $item['type'] ?></td>
+				<td><?php echo $item['class'] ?></td>
+				<td><?php echo $item['sql'] ?></td>
+			</tr>
+			<?php $row++; ?>
+		<?php endforeach ?>
+	</tbody>
+</table>

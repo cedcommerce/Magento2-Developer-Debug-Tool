@@ -1,0 +1,47 @@
+<?php
+
+$request = $this->getRequestDetails();
+$getpostVariables = $this->getPostGetVariableDetails();
+
+?>
+<h4><?php echo __('Controller') ?></h4>
+<table>
+	<thead>
+		<tr>
+            <th><?php echo __('Label') ?></th>
+            <th><?php echo __('Value') ?></th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php $row = 0; ?>
+		<?php foreach( $request[0] as $keyname=>$item ): ?>
+			<tr class="<?php echo ( ($row % 2 ? 'djDebugOdd' : 'djDebugEven')) ?>">
+				<td><?php echo $keyname ?></td><td><?php echo $item ?></td>
+			</tr>
+			<?php $row++; ?>
+		<?php endforeach ?>
+	</tbody>
+</table>
+
+<h4><?php echo __('GET & POST Variables') ?></h4>
+<?php if(empty($getVariables)){?>
+    <span><?php echo __('No GET & POST Data') ?></span>
+<?php } else { ?>
+<table>
+	<thead>
+		<tr>
+            <th><?php echo __('Label') ?></th>
+            <th><?php echo __('Value') ?></th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php $row = 0; ?>
+		<?php foreach( $getpostVariables as $keyname=>$item ): ?>
+			<tr class="<?php echo ( ($row % 2 ? 'djDebugOdd' : 'djDebugEven')) ?>">
+				<td><?php echo $keyname ?></td><td><?php echo $item ?></td>
+			</tr>
+			<?php $row++; ?>
+		<?php endforeach ?>
+	</tbody>
+</table>
+<?php } ?>

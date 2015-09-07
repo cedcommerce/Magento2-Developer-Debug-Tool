@@ -1,0 +1,5 @@
+<config>
+	<preference for="Magento\Framework\Event\Manager" type="Ced\DevTool\Model\Framework\Event\Manager" />
+	<!-- <preference for="Magento\Framework\Event\Invoker\InvokerDefault" type="Ced\DevTool\Model\Framework\Event\Invoker\InvokerDefault" />  -->  
+	<!-- <preference for="Magento\Framework\View\Element\Template" type="Ced\DevTool\Block\Toolblock" /> -->
+</config>

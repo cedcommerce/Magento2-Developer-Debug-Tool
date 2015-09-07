@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+     <body>		
+        <referenceContainer name="before.body.end">			
+			<block class="Ced\DevTool\Block\DevTool" name="devtool" template="devtool.phtml">
+				 <block class="Ced\DevTool\Block\DevTool\Request" name="devtool.request" template="devtool/request.phtml" group="devtool">
+                    <arguments>
+                        <argument name="css_class" xsi:type="string">request</argument>
+                        <argument name="title" translate="true" xsi:type="string">Request</argument>
+                    </arguments>
+                </block>
+                <block class="Ced\DevTool\Block\DevTool\Models" name="devtool.models" template="devtool/models.phtml" group="devtool">
+                    <arguments>
+                        <argument name="css_class" xsi:type="string">models</argument>
+                        <argument name="title" translate="true" xsi:type="string">Models</argument>
+                    </arguments>
+                </block>
+                 <block class="Ced\DevTool\Block\DevTool\Collections" name="devtool.collections" template="devtool/collections.phtml" group="devtool">
+                    <arguments>
+                        <argument name="css_class" xsi:type="string">collections</argument>
+                        <argument name="title" translate="true" xsi:type="string">Collections</argument>
+                    </arguments>
+                </block>
+                <block class="Ced\DevTool\Block\DevTool\Events" name="devtool.events" template="devtool/events.phtml" group="devtool">
+                    <arguments>
+                        <argument name="css_class" xsi:type="string">devtool</argument>
+                        <argument name="title" translate="true" xsi:type="string">Observer Events</argument>
+                    </arguments>
+                </block>
+				<block class="Ced\DevTool\Block\DevTool\SystemTasks" name="devtool.systemtasks" template="devtool/systemtasks.phtml" group="devtool">
+                    <arguments>
+                        <argument name="css_class" xsi:type="string">system_tasks</argument>
+                        <argument name="title" translate="true" xsi:type="string">System Tasks</argument>
+                    </arguments>
+                </block>
+				<block class="Ced\DevTool\Block\DevTool\Preferences" name="devtool.preferences" template="devtool/preferences.phtml" group="devtool">
+                    <arguments>
+                        <argument name="css_class" xsi:type="string">system_tasks</argument>
+                        <argument name="title" translate="true" xsi:type="string">All Preferences/Rewrites</argument>
+                    </arguments>
+                </block>
+				<block class="Ced\DevTool\Block\DevTool\BlockHandles" name="devtool.blockhandles" template="devtool/blockhandles.phtml" group="devtool">
+                    <arguments>
+                        <argument name="css_class" xsi:type="string">block_handles</argument>
+                        <argument name="title" translate="true" xsi:type="string">Handles,Blocks And Templates</argument>
+                    </arguments>
+                </block>
+            </block>
+        </referenceContainer>      
+    </body>
+</page>

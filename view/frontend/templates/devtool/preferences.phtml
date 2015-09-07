@@ -1,0 +1,7 @@
+<table>
+	<tr><th>Class</th><th>Extended Class</th></tr>
+	<?php
+	foreach($block->getPreferencesDetails() as $extendedClass=>$class){ ?>
+			<tr><td><?php echo $class ?></td><td><?php echo $extendedClass ?></td></tr>
+	<?php } ?>
+</table>

@@ -1,0 +1,17 @@
+{
+    "name": "ced/module-devtool",
+    "description": "Magento 2 Developer-Debug Tool by CedCommerce",
+    "type": "magento2-module",
+    "require": {
+    "php": "~5.5.0|~5.6.0",
+    "magento/magento-composer-installer": "*"
+    },
+    "extra": {
+        "map": [
+            [
+                "*",
+                "Ced/DevTool"
+            ]
+        ]
+    }
+}

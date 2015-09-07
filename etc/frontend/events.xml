@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../lib/internal/Magento/Framework/Event/etc/events.xsd">
+    <event name="model_load_after">
+        <observer name="ced_devtool_model_load_after" instance="Ced\DevTool\Model\Observer" method="onEveryModelLoad" />
+    </event>
+     <event name="core_collection_abstract_load_before">
+        <observer name="ced_devtool_core_collection_abstract_load_before" instance="Ced\DevTool\Model\Observer" method="onEveryCollectionLoad" />
+    </event>
+     <event name="eav_collection_abstract_load_before">
+        <observer name="ced_devtool_eav_collection_abstract_load_before" instance="Ced\DevTool\Model\Observer" method="onEveryEavCollectionLoad" />
+    </event>
+    <event name="controller_action_postdispatch">
+        <observer name="ced_devtool_controller_action_postdispatch" instance="Ced\DevTool\Model\Observer" method="onControllerCall" />
+    </event>
+	<event name="view_block_abstract_to_html_before">
+        <observer name="ced_devtool_get_block_name" instance="Ced\DevTool\Model\Observer" method="setBlockname" />
+    </event>
+</config>
