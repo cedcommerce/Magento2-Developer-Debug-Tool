@@ -60,7 +60,11 @@ To add the module to your Magento installation:
 - Save your changes and exit the text editor.
 
 ##Installing the module using Composer
-    We will update this soon
+
+- open cmd/shell and cd upto your magentoRootDirectory
+- then run below commands:-
+- composer config repositories.ced git https://github.com/cedcommerce/Magento2-Developer-Debug-Tool
+- composer require cedcommerce/magento2-developer-debug-tool:*
 
 ## Authors, contributors and maintainers
 

@@ -3,7 +3,8 @@
 $items = $this->getModelDetails();
 //var_dump($items);die;
 ?>
-<table>
+<input type="text" placeholder="Search" id="models-search"/>
+<table class="table-models">
 	<thead>
 		<tr>
 			<th><?php echo __('Resource Name') ?></th>
@@ -23,3 +24,38 @@ $items = $this->getModelDetails();
 		<?php endforeach ?>
 	</tbody>
 </table>
+<script type="text/javascript">
+	require([
+		"jquery",
+		"jquery/jquery.cookie",
+	], function($){
+		(function($) {
+			$('#models-search').on('keyup', function(e) {
+				if ('' != this.value) {
+					var reg = new RegExp(this.value, 'i'); // case-insesitive
+
+					$('.table-models tbody').find('tr').each(function() {
+						var $me = $(this);
+						var hide=true;
+						$me.find('td').each(function() {
+							$td=$(this);
+							if ($td.text().match(reg)) {
+								hide=false;
+							} 
+						});
+						if(hide)
+						{
+							$me.hide();
+						}
+						else
+						{
+							$me.show();
+						}
+					});
+				} else {
+					$('.table tbody').find('tr').show();
+				}
+			});
+		})(jQuery);	
+	});	
+</script>
