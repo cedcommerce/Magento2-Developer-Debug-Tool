@@ -3,6 +3,7 @@
  * Copyright © 2015 CedCommerce. All rights reserved.
  */
 namespace Ced\DevTool\Helper;
+use Magento\Framework\App\Filesystem\DirectoryList;
 class Data extends \Magento\Framework\App\Helper\AbstractHelper
 {
 
@@ -84,14 +85,23 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     protected $_session=null;
 	
 	/**
+     * @var \Magento\Framework\ObjectManagerInterface
+     */
+    protected $_objectManager;
+	
+	/**
      * @param \Magento\Framework\App\Helper\Context $context
 	 * @param \Magento\Framework\Registry $coreRegistry
 	 * @param \Magento\Framework\ObjectManager\ConfigInterface $config
      */
-	public function __construct(\Magento\Framework\App\Helper\Context $context ,\Magento\Framework\Registry $coreRegistry,\Magento\Framework\ObjectManager\ConfigInterface $config) {
+	public function __construct(\Magento\Framework\App\Helper\Context $context ,\Magento\Framework\Registry $coreRegistry,\Magento\Framework\ObjectManager\ConfigInterface $config,
+	\Magento\Framework\ObjectManagerInterface $objectManager
+	) {
 		$this->_coreRegistry = $coreRegistry;
 		$this->_preferences=$config->getPreferences();
+		$this->_objectManager=$objectManager;
 		$this->addDevToolData($this->preferencesKey,$this->_preferences);
+		
 		parent::__construct($context);
 	}
 	
@@ -118,7 +128,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      */
 	public function setDeveloperRegistry($data)
 	{
-		
+		$this->log($data);
 	   if($this->_coreRegistry->registry($this->_dataKey)) 
 		{
 			$this->_coreRegistry->unregister($this->_dataKey);
@@ -168,12 +178,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      */
     public function getDeveloperRegistryBlock()
     {
-
-        if($data=$this->_coreRegistry->registry($this->_statusKey))
-        {
-            return $data;
-        }
-        return array();
+        return $this->getDevToolData($this->_statusKey);
     }
 
 	/**
@@ -183,12 +188,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      */
     public function setDeveloperRegistryBlock($data)
     {
-
-        if($this->_coreRegistry->registry($this->_statusKey))
-        {
-            $this->_coreRegistry->unregister($this->_statusKey);
-        }
-        $this->_coreRegistry->register($this->_statusKey,$data);
+		$this->addDevToolData($this->_statusKey,$data);
         return true;
     }
 	
@@ -199,6 +199,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      */
 	public function addDevToolData($key,$data)
     {
+
    	    if($dataRegistry=$this->getDeveloperRegistry()){
 			$dataRegistry[$key]=$data;			
 		}
@@ -220,7 +221,9 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     public function getDevToolData($key)
     {
    	    if($data=$this->getDeveloperRegistry()){
+			if(isset($data[$key]))
 			return $data[$key];
+			return false;
 		}
 		else
 		{	
@@ -283,4 +286,17 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         }
         return false;
     }
+	
+	/**
+     * logging dev tool data in file
+     * @return bool
+     */
+	public function log($data){
+		$logDir=$this->_objectManager->get('Magento\Framework\Filesystem')
+							->getDirectoryRead(DirectoryList::LOG);
+		$log=fopen($logDir->getAbsolutePath().'devTool.log','w');
+		fwrite($log,print_r($data,true));
+		return true;
+		
+	}
 }
