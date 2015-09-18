@@ -7,7 +7,7 @@ namespace Ced\DevTool\Model;
 /**
  * DevTool Config model
  */
-class Config extends \Magento\Framework\DataObject
+class Config 
 {
 
 	/**
@@ -55,7 +55,7 @@ class Config extends \Magento\Framework\DataObject
         \Magento\Framework\App\Config\ValueFactory $configValueFactory,
         array $data = []
     ) {
-        parent::__construct($data);
+        //parent::__construct($data);
         $this->_storeManager = $storeManager;
         $this->_scopeConfig = $scopeConfig;
         $this->_backendModel = $backendModel;
