@@ -3,8 +3,8 @@
 # Magento 2 Developer-Debug Tool by CedCommerce 
 
 
-**Magento 2 Developer-Debug Tool**, a Magento 2.0 development and debugging extension, which aims at easing developers concerns by fetching vital information for a current page load. The extension users are provided with complete set of data related to a current page request, collections and models called during a page load. Besides this, all observer called events data, along with parent and its extended classes of a page load are viewable by developers. Further, data information on blocks with their respective handle names, and associated template files with full file path is also communicated to the extension users.
-However, in the absence of **Magento 2 Developer-Debug Tool**, developers are tasked with tracking of all important data via Magento’s backend. 
+**Magento 2 Developer-Debug Tool**, a Magento 2.0 development and debugging extension developed by CedCommerce, which aims at easing developers concerns by fetching vital information for a current page load. The extension users are provided with complete set of data related to a current page request, collections and models called during a page load. Besides this, all observer called events data, along with parent and its extended classes of a page load are viewable by developers. Further, data information on blocks with their respective handle names, and associated template files with full file path is also communicated to the extension users.
+However, in the absence of **Magento 2 Developer-Debug Tool by CedCommerce**, developers are tasked with tracking of all important data via Magento’s backend. 
 The data in the module has been divided into tabs, which can be viewed at module’s bottom page, after it’s being configured from the admin section. Each tab is designed to allow developers to have better understanding on data related to the current page load.
 
 ![](images/Block.png)
@@ -13,7 +13,7 @@ The data in the module has been divided into tabs, which can be viewed at module
 
 - **REQUEST TAB**: shows the **Module, Controller, Action** name of the recently loaded page. Provides accurate **Path Info** of the loaded page, the feature help developers for URL rewriting.
 
-- **MODEL TAB: shows all the **Model Resource Name** and their respective **Class Name** in a sequenced manner to narrate loaded models mechanism during a page load. Also mentions, frequency of instantiated models.
+- **MODEL TAB**: shows all the **Model Resource Name** and their respective **Class Name** in a sequenced manner to narrate loaded models mechanism during a page load. Also mentions, frequency of instantiated models.
 
 - **COLLECTIONS TAB**: shows all the active collections and its types (Flat/EAV) along with SQL Queries generated during a page load.
 
@@ -28,7 +28,7 @@ The data in the module has been divided into tabs, which can be viewed at module
 
 ## Compatibility
 
-**Magento 2 Developer-Debug** module is tested on the **2.0.0.0-dev35** version of Magento 2.0.  The tool is launched with a goal to help global developers, who are willing to leave no stone unturned in analyzing structure of Magento 2.0.
+**Magento 2 Developer-Debug by CedCommerce** module is tested on the **2.0.0.0-dev35** version of Magento 2.0.  The tool is launched by CedCommerce with a goal to help global developers, who are willing to leave no stone unturned in analyzing structure of Magento 2.0.
 
 ##Installing and verifying the reference module
 You can install the reference module in any of the following ways:
