@@ -1,60 +1,6 @@
-<input type="text" placeholder="Search" id="events-search"/>
-<table class="table-events">
-	<thead>
-		<tr>
-			<th><?php echo __('Event Name') ?></th>
-			<th><?php echo __('Observer Name') ?></th>
-			<th><?php echo __('Observer Function') ?></th>
-			<th><?php echo __('Observer Class') ?></th>
-			<th><?php echo __('Call Count') ?></th>
-		</tr>
-	</thead>
-	<tbody>
-		<?php $row = 0; ?>
-		<?php foreach($block->getEventDetails() as $event ): ?>
-			<tr class="<?php echo ( ($row % 2 ? 'odd' : 'even')) ?>">
-				<td><?php echo __($event['event']) ?></td>
-				<td><?php echo __($event['configuration']['name']) ?></td>
-				<td><?php echo __($event['configuration']['method']) ?></td>
-				<td><?php echo __($event['configuration']['instance']) ?></td>
-				<td><?php echo __($event['count']) ?></td>
-			</tr>
-			<?php $row++; ?>
-		<?php endforeach ?>
-	</tbody>
+<table>
+	<tr><th>Event Name</th><th>Observer Name</th><th>Observer Function</th><th>Observer Class</th><th>Call Count</th></tr>
+	<?php foreach($block->getEventDetails() as $event){ ?>
+			<tr><td><?php echo $event['event'] ?></td><td><?php echo $event['configuration']['name'] ?></td><td><?php echo isset($event['configuration']['method'])?$event['configuration']['method']:'N/A'			?></td><td><?php echo $event['configuration']['instance'] ?></td><td><?php echo $event['count'] ?></td></tr>
+	<?php } ?>
 </table>
-<script type="text/javascript">
-	require([
-		"jquery",
-		"jquery/jquery.cookie",
-	], function($){
-		(function($) {
-			$('#events-search').on('keyup', function(e) {
-				if ('' != this.value) {
-					var reg = new RegExp(this.value, 'i'); // case-insesitive
-
-					$('.table-events tbody').find('tr').each(function() {
-						var $me = $(this);
-						var hide=true;
-						$me.find('td').each(function() {
-							$td=$(this);
-							if ($td.text().match(reg)) {
-								hide=false;
-							} 
-						});
-						if(hide)
-						{
-							$me.hide();
-						}
-						else
-						{
-							$me.show();
-						}
-					});
-				} else {
-					$('.table tbody').find('tr').show();
-				}
-			});
-		})(jQuery);	
-	});	
-</script>

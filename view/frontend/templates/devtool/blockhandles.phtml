@@ -1,56 +1,38 @@
-<input type="text" placeholder="Search" id="block-search"/>
-<table class="table-block">
-	<thead>
-		<tr>
-			<th><?php echo __('Blocks') ?></th>
-			<th><?php echo __('Handle') ?></th>
-			<th><?php echo __('Associated Template') ?></th>
-		</tr>
-	</thead>
-	<tbody>
-		<?php $row = 0; ?>
-		<?php foreach( $block->getBlockHandleDetails() as $bloc ): ?>
-			<tr class="<?php echo ( ($row % 2 ? 'odd' : 'even')) ?>">
-				<td><?php echo __($bloc['class']) ?></td>
-				<td><?php echo __($bloc['handle']) ?></td>
-				<td><?php echo __($bloc['template']) ?></td>
-			</tr>
-			<?php $row++; ?>
-		<?php endforeach ?>
-	</tbody>
-</table>
-<script type="text/javascript">
-	require([
-		"jquery",
-		"jquery/jquery.cookie",
-	], function($){
-		(function($) {
-			$('#block-search').on('keyup', function(e) {
-				if ('' != this.value) {
-					var reg = new RegExp(this.value, 'i'); // case-insesitive
+<style type="text/css">
+   #wrap {
+    width: 100%;
+}
+.left {
+    clear: both;
+    float: left;
+    line-height: 40px;
+    width: 33.33%;
+	margin-bottom: 15px;
+}
+.middle {
+    float: left;
+    line-height: 30px;
+    width: 26.33%;
+	margin-bottom: 15px;
+}
+.right {
+    float: left;
+    width: 40.33%;
+	margin-bottom: 15px;
+}
+#right_col {
+    line-height: 30px;
+}
 
-					$('.table-block tbody').find('tr').each(function() {
-						var $me = $(this);
-						var hide=true;
-						$me.find('td').each(function() {
-							$td=$(this);
-							if ($td.text().match(reg)) {
-								hide=false;
-							} 
-						});
-						if(hide)
-						{
-							$me.hide();
-						}
-						else
-						{
-							$me.show();
-						}
-					});
-				} else {
-					$('.table tbody').find('tr').show();
-				}
-			});
-		})(jQuery);	
-	});	
-</script>
+</style>
+
+<div id="wrap">
+    <div class="structure_wrap">
+        <div class="left"><span id="left_col"><b>Blocks</b></span></div><div class="middle"><span id="middle_col"><b>Handle</b></span></div><div class="right"><span id="right_col"><b>Associated Template</b></span></div>
+        <?php
+                 foreach($block->getBlockHandleDetails() as $bloc){
+                            echo '<div class="left"><span id="left_col">'.$bloc['class'].'</span></div><div class="middle"><span id="middle_col">'.$bloc['handle'].'</span></div><div class="right"><span id="right_col">'.$bloc['template'].'</span></div>';
+                     }
+        ?>
+    </div>
+</div>

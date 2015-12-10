@@ -12,8 +12,9 @@ if($block->canShowDevTool()):
                     }
                     $alias = $layout->getElementAlias($name);
                     $label = $block->getChildData($alias, 'title');
+					$class = $block->getChildData($alias, 'class');
                 ?>
-                <div class="data item title"
+                <div class="data item title <?php echo $class ?>"
                      aria-labeledby="tab-label-<?php echo $alias;?>-title"
                      data-role="collapsible" id="tab-label-<?php echo $alias;?>">
                     <a class="data switch"

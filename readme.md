@@ -28,7 +28,7 @@ The data in the module has been divided into tabs, which can be viewed at module
 
 ## Compatibility
 
-**Magento 2 Developer-Debug** module is tested on the **2.0.0.0-dev35** version and on **Master branch** of Magento 2.0.  The tool is launched with a goal to help global developers, who are willing to leave no stone unturned in analyzing structure of Magento 2.0.
+**Magento 2 Developer-Debug** module is tested on the **2.0.0.0-dev35** version of Magento 2.0.  The tool is launched with a goal to help global developers, who are willing to leave no stone unturned in analyzing structure of Magento 2.0.
 
 ##Installing and verifying the reference module
 You can install the reference module in any of the following ways:

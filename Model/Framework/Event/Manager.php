@@ -57,6 +57,7 @@ class Manager extends \Magento\Framework\Event\Manager
             $wrapper->setData(array_merge(['event' => $event], $data));		
             \Magento\Framework\Profiler::start('OBSERVER:' . $observerConfig['name']);
             $this->_invoker->dispatch($observerConfig, $wrapper);
+			$observerConfig['method']='execute';
 			$this->_devHelper->setObserverDetails($observerConfig,$eventName);
             \Magento\Framework\Profiler::stop('OBSERVER:' . $observerConfig['name']);
         }

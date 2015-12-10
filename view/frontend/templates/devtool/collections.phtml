@@ -3,8 +3,7 @@
 $collections = $this->getCollectionDetails();
 
 ?>
-<input type="text" placeholder="Search" id="collection-search"/>
-<table class="table-collection">
+<table>
 	<thead>
 		<tr>
 			<th><?php echo __('Type') ?></th>
@@ -24,38 +23,3 @@ $collections = $this->getCollectionDetails();
 		<?php endforeach ?>
 	</tbody>
 </table>
-<script type="text/javascript">
-	require([
-		"jquery",
-		"jquery/jquery.cookie",
-	], function($){
-		(function($) {
-			$('#collection-search').on('keyup', function(e) {
-				if ('' != this.value) {
-					var reg = new RegExp(this.value, 'i'); // case-insesitive
-
-					$('.table-collection tbody').find('tr').each(function() {
-						var $me = $(this);
-						var hide=true;
-						$me.find('td').each(function() {
-							$td=$(this);
-							if ($td.text().match(reg)) {
-								hide=false;
-							} 
-						});
-						if(hide)
-						{
-							$me.hide();
-						}
-						else
-						{
-							$me.show();
-						}
-					});
-				} else {
-					$('.table tbody').find('tr').show();
-				}
-			});
-		})(jQuery);	
-	});	
-</script>

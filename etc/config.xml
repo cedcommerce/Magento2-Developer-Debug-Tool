@@ -5,12 +5,26 @@
  * See COPYING.txt for license details.
  */
 -->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Store/etc/config.xsd">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Store/etc/config.xsd">
     <default>
         <devtool>
             <module>
                 <is_enabled>0</is_enabled>
             </module>
 		</devtool>
+		<system>
+            <csmarketplace>
+                <feed_url>cedcommerce.com/notification.rss</feed_url>
+                <popup_url>widgets.magentocommerce.com/notificationPopup</popup_url>
+                <severity_icons_url>widgets.magentocommerce.com/%s/%s.gif</severity_icons_url>
+                <frequency>72</frequency>
+                <last_update>0</last_update>
+            </csmarketplace>
+        </system>		
+		<cedcore>
+			<feeds_group>
+				<feeds>INFO,PROMO,UPDATE_RELEASE,NEW_RELEASE,INSTALLED_UPDATE</feeds>
+			</feeds_group>
+		</cedcore>
     </default>
 </config>

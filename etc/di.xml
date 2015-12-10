@@ -1,5 +1,4 @@
-<config>
-	<preference for="Magento\Framework\Event\Manager" type="Ced\DevTool\Model\Framework\Event\Manager" />
-	<!-- <preference for="Magento\Framework\Event\Invoker\InvokerDefault" type="Ced\DevTool\Model\Framework\Event\Invoker\InvokerDefault" />  -->  
-	<!-- <preference for="Magento\Framework\View\Element\Template" type="Ced\DevTool\Block\Toolblock" /> -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	 <preference for="Magento\Framework\Event\Manager" type="Ced\DevTool\Model\Framework\Event\Manager" />
+	
 </config>

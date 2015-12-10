@@ -23,25 +23,25 @@
                 </block>
                 <block class="Ced\DevTool\Block\DevTool\Events" name="devtool.events" template="devtool/events.phtml" group="devtool">
                     <arguments>
-                        <argument name="css_class" xsi:type="string">devtool</argument>
+                        <argument name="css_class" xsi:type="string">events</argument>
                         <argument name="title" translate="true" xsi:type="string">Observer Events</argument>
                     </arguments>
                 </block>
 				<block class="Ced\DevTool\Block\DevTool\SystemTasks" name="devtool.systemtasks" template="devtool/systemtasks.phtml" group="devtool">
                     <arguments>
-                        <argument name="css_class" xsi:type="string">system_tasks</argument>
+                        <argument name="css_class" xsi:type="string">systemtasks</argument>
                         <argument name="title" translate="true" xsi:type="string">System Tasks</argument>
                     </arguments>
                 </block>
 				<block class="Ced\DevTool\Block\DevTool\Preferences" name="devtool.preferences" template="devtool/preferences.phtml" group="devtool">
                     <arguments>
-                        <argument name="css_class" xsi:type="string">system_tasks</argument>
+                        <argument name="css_class" xsi:type="string">preferences</argument>
                         <argument name="title" translate="true" xsi:type="string">All Preferences/Rewrites</argument>
                     </arguments>
                 </block>
 				<block class="Ced\DevTool\Block\DevTool\BlockHandles" name="devtool.blockhandles" template="devtool/blockhandles.phtml" group="devtool">
                     <arguments>
-                        <argument name="css_class" xsi:type="string">block_handles</argument>
+                        <argument name="css_class" xsi:type="string">blockhandles</argument>
                         <argument name="title" translate="true" xsi:type="string">Handles,Blocks And Templates</argument>
                     </arguments>
                 </block>

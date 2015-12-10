@@ -14,7 +14,9 @@ $getpostVariables = $this->getPostGetVariableDetails();
 	</thead>
 	<tbody>
 		<?php $row = 0; ?>
-		<?php foreach( $request[0] as $keyname=>$item ): ?>
+		<?php
+		if(isset($request[0]))
+		foreach( $request[0] as $keyname=>$item ): ?>
 			<tr class="<?php echo ( ($row % 2 ? 'djDebugOdd' : 'djDebugEven')) ?>">
 				<td><?php echo $keyname ?></td><td><?php echo $item ?></td>
 			</tr>
