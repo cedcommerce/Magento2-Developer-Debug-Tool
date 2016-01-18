@@ -287,8 +287,11 @@ class Feed extends \Magento\AdminNotification\Model\Feed
 			{
 				return false;
 			}
-            $xml  = new \SimpleXMLElement($data);
-        } catch (Exception $e) {
+			if($curl->getInfo())
+				$xml  = new \SimpleXMLElement((string)$data);
+			else
+				return false;
+        } catch (\Exception $e) {
 			return false;
         }
 
