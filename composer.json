@@ -1,5 +1,5 @@
 {
-    "name": "ced/module-devtool",
+    "name": "cedcommerce/magento2-developer-debug-tool",
     "description": "Magento 2 Developer-Debug Tool by CedCommerce",
     "type": "magento2-module",
     "require": {
