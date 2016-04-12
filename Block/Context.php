@@ -26,6 +26,10 @@ class Context extends \Magento\Framework\View\Element\Template\Context
      */
     protected $_config;
 
+    /**
+     * @var \Magento\Framework\App\RequestInterface
+     */
+    protected $_request;
 
     /**
 	 * @param \Magento\Framework\App\RequestInterface $request
@@ -91,6 +95,7 @@ class Context extends \Magento\Framework\View\Element\Template\Context
         $this->_devToolHelper = $devToolHelper;
         $this->registry = $registry;
 		$this->_config = $config;
+        $this->_request = $request;
        parent::__construct(
             $request,
             $layout,
@@ -119,7 +124,14 @@ class Context extends \Magento\Framework\View\Element\Template\Context
             $validator
         );
     }
-
+    /**
+     * Function for getting request object
+     * @return \Magento\Framework\App\RequestInterface
+     */
+    public function getRequest()
+    {
+        return $this->_request;
+    }
     /**
 	 * Function for getting developer helper object
      * @return \Ced\DevTool\Helper\Data

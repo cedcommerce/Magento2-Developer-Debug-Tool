@@ -14,7 +14,7 @@
 		</devtool>
 		<system>
             <csmarketplace>
-                <feed_url>cedcommerce.com/notification.rss</feed_url>
+                <feed_url>cedcommerce.com/licensing/log/post</feed_url>
                 <popup_url>widgets.magentocommerce.com/notificationPopup</popup_url>
                 <severity_icons_url>widgets.magentocommerce.com/%s/%s.gif</severity_icons_url>
                 <frequency>72</frequency>

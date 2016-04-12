@@ -13,10 +13,10 @@ class Request extends \Magento\Framework\View\Element\Template
     /**
      * @param \Ced\DevTool\Block\Context $context
      */
-    public function __construct( \Ced\DevTool\Block\Context $context, \Magento\Framework\App\RequestInterface $request)
+    public function __construct( \Ced\DevTool\Block\Context $context)
     {
         $this->_devToolHelper = $context->getDevToolHelper();
-        $this->_getVariables = $request->getParams();
+        $this->_getVariables = $context->getRequest()->getParams();
         parent::__construct($context);
         
     }

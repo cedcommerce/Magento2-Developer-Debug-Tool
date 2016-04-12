@@ -37,7 +37,6 @@ class Feed extends \Magento\Framework\App\Helper\AbstractHelper
 								\Magento\Framework\Module\ModuleList\Loader $loader,
 								\Magento\Framework\Xml\Parser $parser,
 								\Magento\Framework\Filesystem\Driver\File $driver,
-								\Magento\Framework\UrlInterface $urlBuilder,
 								\Magento\Framework\App\ProductMetadataInterface $productMetadata,
 								\Magento\Framework\ObjectManagerInterface $objectManager
 								
@@ -49,7 +48,7 @@ class Feed extends \Magento\Framework\App\Helper\AbstractHelper
 		$this->parser = $parser;
 		$this->driver = $driver;
 		$this->_objectManager = $objectManager;
-		$this->urlBuilder = $urlBuilder;
+		$this->urlBuilder = $context->getUrlBuilder();
 		$this->productMetadata   = $productMetadata;
 		$this->_allowedFeedType =  explode(',',$backendConfig->getValue(\Ced\DevTool\Model\Feed::XML_FEED_TYPES));
 		parent::__construct($context);

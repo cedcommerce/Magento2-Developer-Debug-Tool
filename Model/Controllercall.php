@@ -3,7 +3,6 @@
  * Copyright © 2015 Cedcommerce. All rights reserved.
  */
 namespace Ced\DevTool\Model;
-use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
 class Controllercall  implements ObserverInterface
 {
