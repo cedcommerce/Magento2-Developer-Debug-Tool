@@ -5,27 +5,20 @@
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Open Software License (OSL 3.0)
+ * This source file is subject to the End User License Agreement (EULA)
  * that is bundled with this package in the file LICENSE.txt.
  * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/osl-3.0.php
+ * http://cedcommerce.com/license-agreement.txt
  *
- * @category    Ced
- * @package     Ced_CsMarketplace
- * @author 		CedCommerce Core Team <coreteam@cedcommerce.com>
- * @copyright   Copyright CedCommerce (http://cedcommerce.com/)
- * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @category  Ced
+ * @package   Ced_DevTool
+ * @author    CedCommerce Core Team <connect@cedcommerce.com>
+ * @copyright Copyright CedCommerce (http://cedcommerce.com/)
+ * @license   http://cedcommerce.com/license-agreement.txt
  */
 
-
-/**
- * Ced_CsMarketplace source updates type
- *
- * @category    Ced
- * @package     Ced_CsMarketplace
- * @author 		CedCommerce Core Team <coreteam@cedcommerce.com>
- */ 
 namespace Ced\DevTool\Model\Source\Updates;
+
 class Type extends \Magento\Framework\Model\AbstractModel
 {
 	const TYPE_PROMO            = 'PROMO';

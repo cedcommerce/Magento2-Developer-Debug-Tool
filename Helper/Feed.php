@@ -1,8 +1,24 @@
-<?php
+<?php 
+
 /**
- * Copyright © 2015 CedCommerce. All rights reserved.
+ * CedCommerce
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End User License Agreement (EULA)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://cedcommerce.com/license-agreement.txt
+ *
+ * @category  Ced
+ * @package   Ced_DevTool
+ * @author    CedCommerce Core Team <connect@cedcommerce.com>
+ * @copyright Copyright CedCommerce (http://cedcommerce.com/)
+ * @license   http://cedcommerce.com/license-agreement.txt
  */
+
 namespace Ced\DevTool\Helper;
+
 class Feed extends \Magento\Framework\App\Helper\AbstractHelper
 {
 
@@ -37,6 +53,7 @@ class Feed extends \Magento\Framework\App\Helper\AbstractHelper
 								\Magento\Framework\Module\ModuleList\Loader $loader,
 								\Magento\Framework\Xml\Parser $parser,
 								\Magento\Framework\Filesystem\Driver\File $driver,
+								\Magento\Framework\UrlInterface $urlBuilder,
 								\Magento\Framework\App\ProductMetadataInterface $productMetadata,
 								\Magento\Framework\ObjectManagerInterface $objectManager
 								
@@ -48,7 +65,7 @@ class Feed extends \Magento\Framework\App\Helper\AbstractHelper
 		$this->parser = $parser;
 		$this->driver = $driver;
 		$this->_objectManager = $objectManager;
-		$this->urlBuilder = $context->getUrlBuilder();
+		$this->urlBuilder = $urlBuilder;
 		$this->productMetadata   = $productMetadata;
 		$this->_allowedFeedType =  explode(',',$backendConfig->getValue(\Ced\DevTool\Model\Feed::XML_FEED_TYPES));
 		parent::__construct($context);
@@ -154,7 +171,7 @@ class Feed extends \Magento\Framework\App\Helper\AbstractHelper
                 throw new \Magento\Framework\Exception\LocalizedException(
                     new \Magento\Framework\Phrase(
                         'Invalid Document: %1%2 Error: %3',
-                        [$file, PHP_EOL, $e->getMessage()]
+                        array( $file, PHP_EOL, $e->getMessage())
                     ),
                     $e
                 );

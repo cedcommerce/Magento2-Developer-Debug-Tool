@@ -1,8 +1,24 @@
-<?php
+<?php 
+
 /**
- * Copyright © 2015 Cedcommerce. All rights reserved.
+ * CedCommerce
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End User License Agreement (EULA)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://cedcommerce.com/license-agreement.txt
+ *
+ * @category  Ced
+ * @package   Ced_DevTool
+ * @author    CedCommerce Core Team <connect@cedcommerce.com>
+ * @copyright Copyright CedCommerce (http://cedcommerce.com/)
+ * @license   http://cedcommerce.com/license-agreement.txt
  */
+
 namespace Ced\DevTool\Model;
+
 class Observer
 {
     protected $_devtoolData;
@@ -27,11 +43,11 @@ class Observer
     {
         if(!$this->_devtoolData->getBlockStatus()) {
             foreach ($observer->getBlock()->getLayout()->getAllBlocks() as $block) {
-                      $this->_devtoolData->addBlockInfo($block->getNameInLayout(),get_class($block),$block->getTemplateFile());
-               }
-            $this->_devtoolData->setBlockStatus();
+                $this->_devtoolData->addBlockInfo($block->getNameInLayout(),get_class($block),$block->getTemplateFile());
             }
+            $this->_devtoolData->setBlockStatus();
         }
+    }
 
     public function onEveryModelLoad(\Magento\Framework\Event\Observer $observer)
     {  
@@ -51,7 +67,8 @@ class Observer
 		}
 		$this->_devtoolData->addDevToolData($this->_devtoolData->_modelKey,$this->models);
 		return $this;
-    }
+    } 
+
     /**
      * Register All the Collection related details on the event core_collection_abstract_load_before
      */
@@ -67,6 +84,7 @@ class Observer
         $this->_devtoolData->addDevToolData($this->_devtoolData->_collectionKey , $this->collections);
         
     }
+
     /**
      * Register All the EAV Collection related details on the event eav_collection_abstract_load_before
      */
@@ -80,6 +98,7 @@ class Observer
         $this->collections[] = $collectionArrayEav;
         $this->_devtoolData->addDevToolData($this->_devtoolData->_collectionKey , $this->collections);
     }
+    
     /**
      * Register All the Controller related details on the event controller_action_postdispatch
      */

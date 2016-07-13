@@ -1,8 +1,22 @@
-<?php
+<?php 
+
 /**
- * Copyright © 2015 CedCommerce. All rights reserved.
- * 
+ * CedCommerce
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End User License Agreement (EULA)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://cedcommerce.com/license-agreement.txt
+ *
+ * @category  Ced
+ * @package   Ced_DevTool
+ * @author    CedCommerce Core Team <connect@cedcommerce.com>
+ * @copyright Copyright CedCommerce (http://cedcommerce.com/)
+ * @license   http://cedcommerce.com/license-agreement.txt
  */
+
 namespace Ced\DevTool\Block;
 
 /**
@@ -26,10 +40,6 @@ class Context extends \Magento\Framework\View\Element\Template\Context
      */
     protected $_config;
 
-    /**
-     * @var \Magento\Framework\App\RequestInterface
-     */
-    protected $_request;
 
     /**
 	 * @param \Magento\Framework\App\RequestInterface $request
@@ -95,7 +105,6 @@ class Context extends \Magento\Framework\View\Element\Template\Context
         $this->_devToolHelper = $devToolHelper;
         $this->registry = $registry;
 		$this->_config = $config;
-        $this->_request = $request;
        parent::__construct(
             $request,
             $layout,
@@ -124,14 +133,7 @@ class Context extends \Magento\Framework\View\Element\Template\Context
             $validator
         );
     }
-    /**
-     * Function for getting request object
-     * @return \Magento\Framework\App\RequestInterface
-     */
-    public function getRequest()
-    {
-        return $this->_request;
-    }
+
     /**
 	 * Function for getting developer helper object
      * @return \Ced\DevTool\Helper\Data

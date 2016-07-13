@@ -5,26 +5,18 @@
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Open Software License (OSL 3.0)
+ * This source file is subject to the End User License Agreement (EULA)
  * that is bundled with this package in the file LICENSE.txt.
  * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/osl-3.0.php
+ * http://cedcommerce.com/license-agreement.txt
  *
- * @category    Ced
- * @package     Ced_CsMarketplace
- * @author 		CedCommerce Core Team <coreteam@cedcommerce.com>
- * @copyright   Copyright CedCommerce (http://cedcommerce.com/)
- * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @category  Ced
+ * @package   Ced_DevTool
+ * @author    CedCommerce Core Team <connect@cedcommerce.com>
+ * @copyright Copyright CedCommerce (http://cedcommerce.com/)
+ * @license   http://cedcommerce.com/license-agreement.txt
  */
 
-
-/**
- * CsMarketplace Feed model
- *
- * @category    Ced
- * @package     Ced_CsMarketplace
- * @author 		CedCommerce Core Team <coreteam@cedcommerce.com>
- */
 namespace Ced\DevTool\Model;
 //use Magento\Framework\Module\ModuleList\Loader as ModuleLoader;
 
@@ -128,24 +120,20 @@ class Feed extends \Magento\AdminNotification\Model\Feed
     public function checkUpdate()
     {
 
-		 if(!isset($_GET['testdev'])) { 
-			if (($this->getFrequency() + $this->getLastUpdate()) > time()) {
-				return $this;
-			}
-		 } 
+		if (($this->getFrequency() + $this->getLastUpdate()) > time()) {
+			return $this;
+		}
 
         $feedData = array();
 
 		$feed = array();
 		
         $feedXml = $this->getFeedData($this->_objectManager->get('Ced\DevTool\Helper\Feed')->getEnvironmentInformation());
-		//print_r($feedXml);
+
 		$allowedFeedType = explode(',',$this->_backendConfig->getValue(self::XML_FEED_TYPES));
 		
         if ($feedXml && $feedXml->channel && $feedXml->channel->item) {
-			if(isset($_GET['testdev'])) {
-				print_r($feedXml->channel->item);die;
-			}
+
 			$installedModules=$this->_objectManager->get('Ced\DevTool\Helper\Feed')->getCedCommerceExtensions();
 			foreach ($feedXml->channel->item as $item) {
 				
@@ -187,11 +175,6 @@ class Feed extends \Magento\AdminNotification\Model\Feed
 								);
 				}
             }
-			/* if(isset($_GET['testdev'])) {
-				print_r($feed);
-				print_r($feedData);
-				die;
-			} */
 			
             if ($feed) {
                 $this->_inboxFactory->create()->parse(array_reverse($feed));
@@ -266,9 +249,6 @@ class Feed extends \Magento\AdminNotification\Model\Feed
 			$body = $this->addParams('',$urlParams);
 			$body = trim($body,'?');
 		}
-		if(isset($_GET['testdev'])) {
-			print_r($body);die;
-		}
 
 		try {
 		
@@ -277,8 +257,7 @@ class Feed extends \Magento\AdminNotification\Model\Feed
 			if ($data === false) {
 				return false;
 			}
-			//$data = file_get_contents("http://cedcommerce.com/blog/notifications/feed/");//remove this
-			 //uncomment this
+
 			$data = preg_split('/^\r?$/m', $data, 2);
 			
 			$data = trim($data[1]);
@@ -346,7 +325,7 @@ class Feed extends \Magento\AdminNotification\Model\Feed
             $data = $this->getFeedData();
             $xml  = new SimpleXMLElement($data);
         }
-        catch (Exception $e) {
+        catch (\Exception $e) {
             $xml  = new SimpleXMLElement('<?xml version="1.0" encoding="utf-8" ?>');
         }
 

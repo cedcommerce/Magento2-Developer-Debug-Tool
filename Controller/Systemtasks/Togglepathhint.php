@@ -1,8 +1,22 @@
-<?php
+<?php 
+
 /**
+ * CedCommerce
  *
- * Copyright © 2015 Cedcommerce. All rights reserved.
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End User License Agreement (EULA)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://cedcommerce.com/license-agreement.txt
+ *
+ * @category  Ced
+ * @package   Ced_DevTool
+ * @author    CedCommerce Core Team <connect@cedcommerce.com>
+ * @copyright Copyright CedCommerce (http://cedcommerce.com/)
+ * @license   http://cedcommerce.com/license-agreement.txt
  */
+
 namespace Ced\DevTool\Controller\Systemtasks;
 
 use Magento\Framework\App\Action\Context;
@@ -17,8 +31,8 @@ class Togglepathhint extends \Magento\Framework\App\Action\Action
 	public function execute()
     {
 		$this->setDeveloperIp();
-		$path='dev/debug/template_hints';
-		$config=$this->_objectManager->get('Ced\DevTool\Model\Config');
+		$path='dev/debug/template_hints_storefront';
+		$config=$this->_objectManager->create('Ced\DevTool\Model\Config');
 		$currentConfigValue=$config->getCurrentStoreConfigValue($path);
 		$value=$currentConfigValue==1?0:1;
 		$config->setCurrentStoreConfigValue($path,$value);
