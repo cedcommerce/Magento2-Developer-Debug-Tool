@@ -75,4 +75,5 @@ class Flushall extends \Magento\Framework\App\Action\Action
             $cacheFrontend->getBackend()->clean();
         } 
     }
+    
 }

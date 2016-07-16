@@ -109,6 +109,5 @@ class DevTool extends \Magento\Framework\View\Element\Template
 			}
 		}
 		return false;
-	}
-	
+	}	
 }

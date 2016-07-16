@@ -19,9 +19,7 @@
 
 namespace Ced\DevTool\Helper;
 class Data extends \Magento\Framework\App\Helper\AbstractHelper
-{
-
-	
+{	
 	/**
      * Developer Data key
      *
