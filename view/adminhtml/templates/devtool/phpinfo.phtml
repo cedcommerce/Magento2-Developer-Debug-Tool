@@ -1,0 +1,10 @@
+<?php
+ob_start();
+phpinfo();
+$info = ob_get_clean();
+?>
+<div id="devtool-phpinfo">
+<?php 
+	echo preg_replace("|<style\b[^>]*>(.*?)</style>|s", "", $info);;
+?>
+</div>

@@ -1,0 +1,54 @@
+<input type="text" placeholder="Search" id="query-search"/>
+<table class="table-query">
+	<thead>
+		<tr>
+			<th><?php echo __('Query') ?></th>
+			<th><?php echo __('Time') ?></th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php $row = 0; ?>
+		<?php foreach($block->getQueryDetails() as $data){ ?>
+			<tr class="<?php echo ( ($row % 2 ? 'odd' : 'even')) ?>">
+				<td><?php echo $data->getQuery() ?></td>
+				<td><?php echo $data->getElapsedSecs() ?></td>
+			</tr>
+			<?php $row++; ?>
+		<?php } ?>
+	</tbody>
+</table>
+<script type="text/javascript">
+	require([
+		"jquery",
+		"jquery/jquery.cookie",
+	], function($){
+		(function($) {
+			$('#query-search').on('keyup', function(e) {
+				if ('' != this.value) {
+					var reg = new RegExp(this.value, 'i'); // case-insesitive
+
+					$('.table-query tbody').find('tr').each(function() {
+						var $me = $(this);
+						var hide=true;
+						$me.find('td').each(function() {
+							$td=$(this);
+							if ($td.text().match(reg)) {
+								hide=false;
+							} 
+						});
+						if(hide)
+						{
+							$me.hide();
+						}
+						else
+						{
+							$me.show();
+						}
+					});
+				} else {
+					$('.table tbody').find('tr').show();
+				}
+			});
+		})(jQuery);	
+	});	
+</script>

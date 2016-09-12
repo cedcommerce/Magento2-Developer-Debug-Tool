@@ -40,6 +40,10 @@ class Context extends \Magento\Framework\View\Element\Template\Context
      */
     protected $_config;
 
+    /**
+     * @var \Magento\Framework\App\RequestInterface
+     */
+    protected $_request;
 
     /**
 	 * @param \Magento\Framework\App\RequestInterface $request
@@ -160,5 +164,12 @@ class Context extends \Magento\Framework\View\Element\Template\Context
 	public function getConfig(){
 		return $this->_config;
 	}
-
+    
+    /**
+     * Function for getting request object
+     * @return \Magento\Framework\App\RequestInterface
+     */
+    public function getRequest(){
+        return $this->_request;
+    }
 }

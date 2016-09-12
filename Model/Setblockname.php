@@ -43,12 +43,13 @@ class Setblockname  implements ObserverInterface
      */
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
-	   if(!$this->_devtoolData->getBlockStatus()) {
+        $val = [];
+	    if(!$this->_devtoolData->getBlockStatus()) {
             foreach ($observer->getBlock()->getLayout()->getAllBlocks() as $block) {
-                      $this->_devtoolData->addBlockInfo($block->getNameInLayout(),get_class($block),$block->getTemplateFile());
-               }
+                $this->_devtoolData->addBlockInfo($block->getNameInLayout(),get_class($block),$block->getTemplateFile());
+            }               
             $this->_devtoolData->setBlockStatus();
-            }
+        }
     }
 	
         

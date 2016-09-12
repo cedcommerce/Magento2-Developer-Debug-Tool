@@ -5,7 +5,7 @@
     "require": {
     "php": "~5.5.0|~5.6.0|~7.0.0" 
     },
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"license": [
    "EULA"
   ],

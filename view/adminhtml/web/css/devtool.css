@@ -1,0 +1,249 @@
+/*************************************************/
+/*           developer debug tools               */
+/*************************************************/
+.ced-devtools {
+  background: #3f3e3c none repeat scroll 0 0;
+  height: 100%;
+  position: fixed;
+  right: -150px;
+  top: 0;
+  transition: all 0.3s ease 0s;
+  width: 150px;
+  z-index: 99999;
+}
+.ced-devtools.active {
+  right: 0;
+  transition: all 0.3s ease 0s;
+}
+.ced-devtools-wrp{
+  overflow-y: scroll;
+  height: 100%;
+}
+.ced-devtools > a {
+  background-color: #eaeaea;
+  background-image: url("../images/bug-gif.gif");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 54px auto;
+  border: medium none !important;
+  border-radius: 100% 0 0 100%;
+  box-shadow: 0 1px 3px 0 #333;
+  height: 80px;
+  left: -54px;
+  position: absolute;
+  top: 40%;
+  width: 54px;
+}
+.ced-devtools > a.active {
+  left: 155px;
+}
+.dev-tool-content > input {
+  border: 1px solid #8e8e8e;
+  border-radius: 3px;
+  height: 45px;
+  padding: 5px;
+  width: 100%;
+}
+
+.devtool-header {
+  background: #44ccba none repeat scroll 0 0;
+  display: table;
+  height: 50px;
+  padding: 10px;
+  position: relative;
+  text-align: center;
+}
+.devtool-head-wrp {
+  display: table-cell;
+  vertical-align: middle;
+}
+.devtool-head-wrp > img {
+  width: 30px;
+}
+.devtool-head-wrp h3 {
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 22px;
+  margin: 0;
+}
+.dev-tool-item {
+  width: 100% !important;
+}
+.dev-tool-item a {
+  background-color: #3f3e3c !important;
+  color: #fff !important;
+  font-family: arial;
+  font-size: 1.2rem !important;
+  height: auto !important;
+  line-height: 20px !important;
+  padding: 40px 5px 10px !important;
+  text-align: center;
+  display: block;
+}
+.dev-tool-item.active a, .dev-tool-item a:hover {
+  background-color: #07c3aa !important;
+  box-shadow: 4px 6px 4px 1px #000;
+  transition: all 0.3s ease 0s;
+  text-decoration: none;
+}
+.dev-tool-content {
+  background: #f1f1f1 none repeat scroll 0 0 !important;
+  border: medium none !important;
+  box-shadow: -8px 0 9px -9px #414141;
+  display: block !important;
+  height: 100%;
+  margin: 0 !important;
+  overflow: scroll;
+  padding: 5px !important;
+  position: fixed;
+  right: -100% !important;
+  top: 0;
+  transition: all 0.3s ease 0s;
+  width: 780px !important;
+  z-index: 2147483647;
+}
+.dev-tool-content.active {
+  right: 150px !important;
+  transition: all 0.3s ease 0s;
+}
+.dev-contnet-tool {
+  position: static !important;
+  z-index: 99999 !important;
+}
+.dev-tool-content > input {
+  height: 38px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.dev-tool-content table {
+  margin-bottom: 25px;
+}
+
+.dev-tool-content table th {
+  background-color: #3f3e3c;
+  color: #fff;
+  padding: 13px;
+  vertical-align: top;
+}
+.dev-tool-content table tbody tr td {
+  font-size: 1.3rem;
+  line-height: 25px;
+  padding: 20px 15px;
+  vertical-align: top;
+}
+.dev-tool-content table tbody tr td a {
+  display: block;
+}
+.dev-tool-content table tbody tr.h th {
+  background: #6f6f6f none repeat scroll 0 0;
+}
+.dev-tool-content table tr.djDebugEven,
+.dev-tool-content table tr.even,
+.dev-tool-content table tr:nth-child(odd) {
+  background: #f8f8f8 none repeat scroll 0 0;
+}
+.dev-tool-content table tr.djDebugOdd,
+.dev-tool-content table tr.odd,
+.dev-tool-content table tr:nth-child(even) {
+  background: #f0f0f0 none repeat scroll 0 0;
+}
+.dev-tool-content table tbody tr {
+  box-shadow: 0 2px 3px -1px #bdbdbd;
+}
+.dev-tool-content h1 {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 35px;
+  margin-bottom: 10px;
+}
+.dev-tool-content h2 {
+  margin: 0 0 15px;
+}
+.dev-tool-content h2 a {
+  color: #3c3c3c;
+  font-weight: bold;
+}
+.dev-tool-content hr{
+  display: none;
+}
+.dev-tool-item a {
+  background-position: center 16px !important;
+  background-repeat: no-repeat !important;
+  background-size: 18px auto !important;
+  border-color: #757575 !important;
+  border-left: medium none #757575 !important;
+  border-right: medium none #757575 !important;
+}
+.dev-tool-item a:hover,.dev-tool-item a.active{
+  border-color: #07C3AA !important;
+}
+.dev-tool-request a{
+  background-image: url('../images/dev-request.png') !important;
+}
+.dev-tool-models a{
+  background-image: url('../images/dev-model.png') !important;
+}
+.dev-tool-collections a{
+  background-image: url('../images/dev-collection.png') !important;
+}
+.dev-tool-events a{
+  background-image: url('../images/dev-request.png') !important;
+}
+.dev-tool-systemtasks a{
+  background-image: url('../images/dev-event.png') !important;
+}
+.dev-tool-preferences a{
+  background-image: url('../images/dev-prefrence.png') !important;
+}
+.dev-tool-blockhandles a{
+  background-image: url('../images/dev-template.png') !important;
+}
+.dev-tool-sqlqueries a{
+  background-image: url('../images/dev-sql-info.png') !important;
+}
+.dev-tool-phpinfo a{
+  background-image: url('../images/dev-php-info.png') !important;
+}
+
+.devtool-overlay {
+  background-color: #fff;
+  filter: blur(20px) brightness(0.8) contrast(90%) drop-shadow(500px 500px 500px blue) grayscale(30%) hue-rotate(100deg) invert(21%) saturate(57%) sepia(72%);
+  -webkit-filter: blur(20px) brightness(0.8) contrast(90%) drop-shadow(500px 500px 500px blue) grayscale(30%) hue-rotate(100deg) invert(21%) saturate(57%) sepia(72%);
+  -moz-filter: blur(20px) brightness(0.8) contrast(90%) drop-shadow(500px 500px 500px blue) grayscale(30%) hue-rotate(100deg) invert(21%) saturate(57%) sepia(72%);
+  -o-filter: blur(20px) brightness(0.8) contrast(90%) drop-shadow(500px 500px 500px blue) grayscale(30%) hue-rotate(100deg) invert(21%) saturate(57%) sepia(72%);
+   -ms-filter: blur(20px) brightness(0.8) contrast(90%) drop-shadow(500px 500px 500px blue) grayscale(30%) hue-rotate(100deg) invert(21%) saturate(57%) sepia(72%);
+  height: 100%;
+  left: 0;
+  opacity: 0.8;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+  cursor: pointer;
+ display: none;
+}
+.devtool-overlay.active{
+  display: block;
+}
+.dev-contnet-events .table-events th, .dev-contnet-events .table-events td {
+  float: left;
+  padding: 13px;
+  width: 21.1%;
+  word-wrap: break-word;
+}
+.dev-contnet-events .table-events th:last-child, 
+.dev-contnet-events .table-events td:last-child {
+  width: 15%;
+}
+.dev-tool-content table{
+  width: 100%;
+}
+
+
+@media (max-width:950px){
+  .dev-tool-content {
+    width: 650px !important;
+  }
+}

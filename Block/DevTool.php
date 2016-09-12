@@ -33,10 +33,15 @@ class DevTool extends \Magento\Framework\View\Element\Template
      */
 	 protected $_urlApp;
 	 
-	 /**
+	/**
      * @var \Ced\DevTool\Model\Config
      */
     protected $_config;
+
+    /**
+     * @var \Ced\DevTool\Model\Config
+     */
+    protected $_request;
 	 
     /**
      * @param \Ced\DevTool\Block\Context $context
@@ -49,6 +54,7 @@ class DevTool extends \Magento\Framework\View\Element\Template
         $this->_devToolHelper = $context->getDevToolHelper();
 		$this->_config = $context->getConfig();
         $this->_urlApp=$urlFactory->create();
+        $this->_request = $context->getRequest();
 		parent::__construct($context);
 	
     }

@@ -96,7 +96,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      */
     protected $_session=null;
 	
-	
+	protected $_resource;
 
 	
 	/**
@@ -104,12 +104,13 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 	 * @param \Magento\Framework\Registry $coreRegistry
 	 * @param \Magento\Framework\ObjectManager\ConfigInterface $config
      */
-	public function __construct(\Magento\Framework\App\Helper\Context $context ,\Magento\Framework\Registry $coreRegistry,\Magento\Framework\ObjectManager\ConfigInterface $config,\Magento\Backend\App\ConfigInterface $backendConfig) {
+	public function __construct(\Magento\Framework\App\Helper\Context $context ,\Magento\Framework\Registry $coreRegistry,\Magento\Framework\ObjectManager\ConfigInterface $config,\Magento\Backend\App\ConfigInterface $backendConfig,
+        \Magento\Framework\App\ResourceConnection $resource,
+        \Magento\Framework\ObjectManagerInterface $objectManager
+        ) {
 		$this->_coreRegistry = $coreRegistry;
 		$this->_preferences=$config->getPreferences();
-		
-		
-		
+		$this->_resource = $resource;
 		$this->addDevToolData($this->preferencesKey,$this->_preferences);
 		
 		parent::__construct($context);
@@ -240,6 +241,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      */
     public function getDevToolData($key)
     {
+
    	    if($data=$this->getDeveloperRegistry()){
 			if(isset($data[$key]))
 				return $data[$key];
@@ -262,6 +264,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      * @return bool
      */
 	public function addBlockInfo($handle,$class,$template){
+        
         if($data=$this->getDeveloperRegistry()){
             $data['block_details'][]=array('handle'=>$handle,'class'=>$class,'template'=>$template);
         }
@@ -281,11 +284,27 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      */
     public function getBlockDetails()
     {
+        
         if($data=$this->getDeveloperRegistry()){
 			if(isset($data['block_details']))
 				return $data['block_details'];
         }
         return array();
+    }
+
+    /**
+     * Public function get query details
+     * @return arrray
+     */
+    function getQueryDetails(){
+    
+        $sqlProfiler = $this->_resource->getConnection('read')->getProfiler();
+        if($sqlProfiler->getEnabled())
+            $profiles = $sqlProfiler->getQueryProfiles();
+        else
+            $profiles = [];
+        return $profiles;
+        
     }
 
     /**
