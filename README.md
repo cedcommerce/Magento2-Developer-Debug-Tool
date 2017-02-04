@@ -49,7 +49,7 @@ To add the module to your Magento installation:
 - cd <your Magento install dir>/app/code
 - Go to the reference module GitHub
 - Click **Download Zip.**
-- Copy the .zip file you downloaded to your Magento server's <magento install dir>/app/code/.
+- Copy the .zip file you downloaded to your Magento server's <magento install dir>/app/code/Ced/DevTool/.
 - Enter the following commands in the order shown:
 - unzip Magento2-Developer-Debug-Tool-master.zip
 - mv Magento2-Developer-Debug-Tool-master/* .
