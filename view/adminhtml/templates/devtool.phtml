@@ -55,7 +55,7 @@ if($block->canShowDevTool()):
                     $('.ced-devtools > a').addClass('active');
                     //alert('ghsdfjgg');
                 });
-               $(".devtool-overlay").click(function(){
+                $(document).on('click', ".devtool-overlay", function(){
                     $('.dev-tool-content.active').removeClass('active');
                     $(".ced-devtools").removeClass("active");
                     $(".devtool-overlay").removeClass("active");
