@@ -209,8 +209,8 @@
 
 .devtool-overlay {
   background-color: #fff;
-  filter: blur(20px) brightness(0.8) contrast(90%) drop-shadow(500px 500px 500px blue) grayscale(30%) hue-rotate(100deg) invert(21%) saturate(57%) sepia(72%);
-  -webkit-filter: blur(20px) brightness(0.8) contrast(90%) drop-shadow(500px 500px 500px blue) grayscale(30%) hue-rotate(100deg) invert(21%) saturate(57%) sepia(72%);
+  /*filter: blur(20px) brightness(0.8) contrast(90%) drop-shadow(500px 500px 500px blue) grayscale(30%) hue-rotate(100deg) invert(21%) saturate(57%) sepia(72%);*/
+  /*-webkit-filter: blur(20px) brightness(0.8) contrast(90%) drop-shadow(500px 500px 500px blue) grayscale(30%) hue-rotate(100deg) invert(21%) saturate(57%) sepia(72%);*/
   -moz-filter: blur(20px) brightness(0.8) contrast(90%) drop-shadow(500px 500px 500px blue) grayscale(30%) hue-rotate(100deg) invert(21%) saturate(57%) sepia(72%);
   -o-filter: blur(20px) brightness(0.8) contrast(90%) drop-shadow(500px 500px 500px blue) grayscale(30%) hue-rotate(100deg) invert(21%) saturate(57%) sepia(72%);
    -ms-filter: blur(20px) brightness(0.8) contrast(90%) drop-shadow(500px 500px 500px blue) grayscale(30%) hue-rotate(100deg) invert(21%) saturate(57%) sepia(72%);
