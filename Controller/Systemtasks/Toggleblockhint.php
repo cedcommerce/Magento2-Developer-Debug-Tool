@@ -30,6 +30,7 @@ class Toggleblockhint extends \Magento\Framework\App\Action\Action
      */
 	public function execute()
     {
+    	
 		$this->setDeveloperIp();
 		$path='dev/debug/template_hints_blocks';
 		$config=$this->_objectManager->create('Ced\DevTool\Model\Config');

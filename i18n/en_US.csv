@@ -1,0 +1,36 @@
+"Disable Path Hint","Disable Path Hint"
+"Enable Path Hint","Enable Path Hint"
+"Disable Block Hint","Disable Block Hint"
+"Enable Block Hint","Enable Block Hint"
+"%1 cache type(s) disabled.","%1 cache type(s) disabled."
+"Invalid Document: %1%2 Error: %3","Invalid Document: %1%2 Error: %3"
+"Only Installed Extension(s) Updates","Only Installed Extension(s) Updates"
+"All Extensions Updates","All Extensions Updates"
+"New Releases","New Releases"
+"Special Offers","Special Offers"
+"Other Information","Other Information"
+Type,Type
+Class,Class
+SQL,SQL
+"Resource Name","Resource Name"
+"Model Class","Model Class"
+"Times Instantiated","Times Instantiated"
+Controller,Controller
+Label,Label
+Value,Value
+"GET & POST Variables","GET & POST Variables"
+"No GET & POST Data","No GET & POST Data"
+"Flush Cache","Flush Cache"
+"Toggle Cache","Toggle Cache"
+CedCommerce,CedCommerce
+"Developer Tool","Developer Tool"
+"Develper Tool","Develper Tool"
+"Enable Developer Tool","Enable Developer Tool"
+"Allowed IPs (comma separated)","Allowed IPs (comma separated)"
+Request,Request
+Models,Models
+Collections,Collections
+"Observer Events","Observer Events"
+"System Tasks","System Tasks"
+"All Preferences/Rewrites","All Preferences/Rewrites"
+"Handles,Blocks And Templates","Handles,Blocks And Templates"

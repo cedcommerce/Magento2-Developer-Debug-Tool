@@ -41,17 +41,20 @@ class Setblockname  implements ObserverInterface
      *  blocks , handles and template info is saved for current request
      *  via helpers
      */
-    public function execute(\Magento\Framework\Event\Observer $observer)
-    {
-        $val = [];
-	    if(!$this->_devtoolData->getBlockStatus()) {
-            foreach ($observer->getBlock()->getLayout()->getAllBlocks() as $block) {
-                $this->_devtoolData->addBlockInfo($block->getNameInLayout(),get_class($block),$block->getTemplateFile());
-            }               
-            $this->_devtoolData->setBlockStatus();
-        }
-    }
-	
+    public function execute(\Magento\Framework\Event\Observer $observer) {
+		$val = [ ];
+		if (! $this->_devtoolData->getBlockStatus()) {
+			foreach ( $observer->getBlock ()->getLayout()->getAllBlocks() as $block ) {
+				try {
+					$this->_devtoolData->addBlockInfo($block->getNameInLayout(), get_class($block),$block->getTemplateFile());
+				} catch (\Exception $e) {
+					continue;
+				}
+			}
+			$this->_devtoolData->setBlockStatus();
+    	}
+   }
+    	
         
     
 }

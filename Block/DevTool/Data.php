@@ -30,7 +30,7 @@ class Data extends DevTool
 	 * @return string
 	 */
 	public function getTogglePathHintTitle(){
-		if($this->getConfigValue('dev/debug/template_hints'))
+		if($this->getConfigValue('dev/debug/template_hints_storefront'))
 			return __('Disable Path Hint');
 		else
 			return __('Enable Path Hint');

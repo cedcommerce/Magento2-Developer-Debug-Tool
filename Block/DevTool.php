@@ -43,18 +43,20 @@ class DevTool extends \Magento\Framework\View\Element\Template
      */
     protected $_request;
 	 
+    public $_storeManager;
     /**
      * @param \Ced\DevTool\Block\Context $context
 	 * @param \Magento\Framework\UrlFactory $urlFactory
      */
     public function __construct( \Ced\DevTool\Block\Context $context,
 								UrlFactory $urlFactory
-	)
+    )
     {
         $this->_devToolHelper = $context->getDevToolHelper();
 		$this->_config = $context->getConfig();
         $this->_urlApp=$urlFactory->create();
         $this->_request = $context->getRequest();
+        $this->_storeManager= $context->getStoreManager();
 		parent::__construct($context);
 	
     }
@@ -82,7 +84,6 @@ class DevTool extends \Magento\Framework\View\Element\Template
 	 * @return string
      */
 	public function getControllerUrl($routePath){
-		
 		return $this->_urlApp->getUrl($routePath);
 	}
 	
@@ -116,4 +117,16 @@ class DevTool extends \Magento\Framework\View\Element\Template
 		}
 		return false;
 	}	
+	
+	/**
+	 * Function for getting front controller url for given router path
+	 * @param string $routePath
+	 * @return string
+	 */
+	public function getFrontUrl($routePath)
+	{
+		return $this->_storeManager->getStore()->getBaseUrl().$routePath;
+	}
+	
+	
 }

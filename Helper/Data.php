@@ -264,7 +264,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      * @return bool
      */
 	public function addBlockInfo($handle,$class,$template){
-        
+       
         if($data=$this->getDeveloperRegistry()){
             $data['block_details'][]=array('handle'=>$handle,'class'=>$class,'template'=>$template);
         }
