@@ -30,14 +30,14 @@ The data in the module has been divided into tabs, which can be viewed at module
 
 **Magento 2 Developer-Debug** module is tested on the **2.1.3** version of Magento 2.x.  The tool is launched with a goal to help global developers, who are willing to leave no stone unturned in analyzing structure of Magento 2.x.
 
-##Installing and verifying the reference module
+## Installing and verifying the reference module
 You can install the reference module in any of the following ways:
 
 - By copying the code to your <your Magento install dir>/app/code/<PackageName>/<ModuleName> directory.
 This method requires some manual tasks but it easy.
 - Using composer update.
 
-##Installing the module by copying code
+## Installing the module by copying code
 Any Magento module requires a particular directory structure under <your Magento install dir>/app/code. The structure starts with:
 < PackageName>/<ModuleName>
 The reference module requires the following structure:
@@ -59,7 +59,7 @@ To add the module to your Magento installation:
 - 'Ced_DevTool' => 1,
 - Save your changes and exit the text editor.
 
-##Installing the module using Composer
+## Installing the module using Composer
 
 - open cmd/shell and cd upto your magentoRootDirectory
 - then run below commands:-
