@@ -1,0 +1,19 @@
+name: M2 Coding Standard
+on: [push, pull_request]
+
+jobs:
+  static:
+    name: Magento 2 Coding Standard
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Magento Coding Standard Test
+        id: magento
+        uses: shikhamis11/magento2-github-action@master
+        with:
+          errorSeverity: "10"
+          warningSeverity: "10"
+
+      # Use the output from the `magento` step
+      - name: Get the output time
+        run: echo "Action Output, ${{ steps.magento.outputs.time }}"
